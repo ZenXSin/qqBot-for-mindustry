@@ -1,6 +1,6 @@
 {
   "name": "koishi-plugin-zxs",
-  "description": "for Sindustry Server",
+  "description": "for Mindustry Server",
   "version": "0.0.1",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
