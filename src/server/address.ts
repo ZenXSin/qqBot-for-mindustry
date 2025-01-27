@@ -110,7 +110,7 @@ export async function getServerStatusByGroup(ctx: Context, group: string): Promi
 
 export async function setAddress(ctx: Context, id: string, host: string) {
   ctx.inject(['database'], async (ctx) => {
-    await ctx.database.upsert('address', (row) => [
+    await ctx.database.upsert('address', () => [
       {id: id, host: host}
     ])
     nowUpdateAddress(ctx)
@@ -177,4 +177,12 @@ export async function gc(ctx: Context, id: string): Promise<string> {
   } else {
     return '未启用api功能，请联系管理员或机器人提供者'
   }
+}
+
+export async function setApiPort(ctx: Context, id: string, port: string){
+  ctx.inject(['database'], async (ctx) => {
+    await ctx.database.upsert('addressApi', () => [
+      {id: id, port: port}
+    ])
+  })
 }
